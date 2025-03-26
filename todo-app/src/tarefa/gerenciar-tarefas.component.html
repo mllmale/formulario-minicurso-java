@@ -1,0 +1,10 @@
+<div>
+    <h2>Gerenciar Tarefas</h2>
+    <ul>
+      <li *ngFor="let tarefa of tarefas">
+        {{ tarefa.titulo }} - {{ tarefa.descricao }}
+        <button (click)="excluirTarefa(tarefa.id)">Excluir</button>
+      </li>
+    </ul>
+  </div>
+  
