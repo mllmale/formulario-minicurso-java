@@ -18,4 +18,24 @@ public class TarefaDto {
     private boolean concluido;
     private LocalDateTime dataConclusao;
     private String usuarioId;
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public LocalDateTime getDataConclusao() {
+        return this.dataConclusao;
+    }
+
+    public String getDescricao() {
+        return this.descricao;
+    }
+
+    public String getUsuarioId() {
+        return this.usuarioId;
+    }
+
+    public boolean isConcluido() {
+        return this.concluido;
+    }
 }

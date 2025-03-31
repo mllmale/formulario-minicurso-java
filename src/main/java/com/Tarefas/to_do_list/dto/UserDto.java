@@ -12,10 +12,32 @@ public class UserDto {
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
+    @NotBlank
+    private String password;
+
     @NotBlank(message = "O CPF é obrigatório")
     @Pattern(regexp = "^(\\d{3}\\.){2}\\d{3}-\\d{2}$", message = "CPF inválido")
     private String cpf;
 
     @NotBlank(message = "O email é obrigatório")
     private String email;
+
+    public String getCpf() {
+        return this.cpf;
+    }
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(String pass) {
+         this.password = pass;
+    }
 }

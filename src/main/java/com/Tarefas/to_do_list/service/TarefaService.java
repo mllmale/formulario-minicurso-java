@@ -23,11 +23,10 @@ public class TarefaService {
 
     public Tarefa salvarTarefa(@Valid Tarefa tarefa) {
         if (tarefa.getDataCriacao() == null) {
-            tarefa.setDataCriacao(LocalDateTime.now()); // Garante que sempre terá uma data
+            tarefa.setDataCriacao(LocalDateTime.now());
         }
         return tarefaRepository.save(tarefa);
     }
-
 
     public Optional<Tarefa> buscarTarefaPorId(String id) {
         return tarefaRepository.findById(id);
@@ -35,6 +34,10 @@ public class TarefaService {
 
     public Page<Tarefa> listarTarefasPorUsuario(String usuarioId, Pageable pageable) {
         return tarefaRepository.findByUsuarioId(usuarioId, pageable);
+    }
+
+    public Page<Tarefa> listarTarefasPorConclusao(boolean concluido, Pageable pageable) {
+        return tarefaRepository.findByConcluido(concluido, pageable);
     }
 
     public void deletarTarefa(String id) {

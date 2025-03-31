@@ -30,14 +30,13 @@ public class TarefaController {
                 null,
                 tarefaDto.getTitulo(),
                 tarefaDto.getDescricao(),
-                tarefaDto.isConcluido(), // Agora respeita o valor enviado no DTO
-                LocalDateTime.now(), // Define a data de criação automaticamente
+                tarefaDto.isConcluido(),
+                LocalDateTime.now(),
                 tarefaDto.getDataConclusao(),
                 tarefaDto.getUsuarioId()
         );
         return ResponseEntity.ok(tarefaService.salvarTarefa(novaTarefa));
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<Tarefa> buscarTarefaPorId(@PathVariable String id) {
@@ -48,6 +47,11 @@ public class TarefaController {
     @GetMapping("/usuario/{usuarioId}")
     public ResponseEntity<Page<Tarefa>> listarTarefasPorUsuario(@PathVariable String usuarioId, Pageable pageable) {
         return ResponseEntity.ok(tarefaService.listarTarefasPorUsuario(usuarioId, pageable));
+    }
+
+    @GetMapping("/status")
+    public ResponseEntity<Page<Tarefa>> listarTarefasPorConclusao(@RequestParam boolean concluido, Pageable pageable) {
+        return ResponseEntity.ok(tarefaService.listarTarefasPorConclusao(concluido, pageable));
     }
 
     @DeleteMapping("/{id}")

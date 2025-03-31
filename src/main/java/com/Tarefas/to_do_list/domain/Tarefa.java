@@ -1,3 +1,4 @@
+
 package com.Tarefas.to_do_list.domain;
 
 import jakarta.validation.constraints.NotBlank;
@@ -12,8 +13,8 @@ import java.time.LocalDateTime;
 @Document(collection = "tarefas")
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Tarefa {
 
     @Id
@@ -26,5 +27,6 @@ public class Tarefa {
     private boolean concluido;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataConclusao;
-    private String usuarioId; // Para relacionar com um usuário
+    private String usuarioId;
 }
+

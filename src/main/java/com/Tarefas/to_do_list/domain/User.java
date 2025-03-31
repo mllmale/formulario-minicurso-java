@@ -19,6 +19,8 @@ public class User {
     @Id
     private String id;
 
+    private String password;
+
     @NotBlank(message = "O nome é obrigatório")
     private String nome;
 
@@ -31,4 +33,18 @@ public class User {
 
     private String usuarioId; // Pode ser usado para associar o usuário à tarefa, por exemplo
 
+    public User(Object o, String nome, String cpf, String email, Object o1) {
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
 }

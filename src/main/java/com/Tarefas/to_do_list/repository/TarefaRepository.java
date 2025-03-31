@@ -8,5 +8,4 @@ import org.springframework.data.domain.Pageable;
 public interface TarefaRepository extends MongoRepository<Tarefa, String> {
     Page<Tarefa> findByUsuarioId(String usuarioId, Pageable pageable);
     Page<Tarefa> findByConcluido(boolean concluido, Pageable pageable);
-    Page<Tarefa> findByNaoConcluido(boolean concluido, Pageable pageable);
 }
