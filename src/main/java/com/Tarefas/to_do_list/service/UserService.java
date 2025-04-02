@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,15 +27,16 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public List<User> buscarTodos() {
+        return userRepository.findAll();
+    }
+
     public Optional<User> buscarUsuarioPorCpf(String cpf) {
         return userRepository.findByCpf(cpf);
     }
 
-    public Optional<User> buscarUsuarioPorEmail(String email) {
-        return userRepository.findByEmail(email);
+    public void deletarUsuario(String cpf) {
+        userRepository.deleteByCpf(cpf);
     }
 
-    public void deletarUsuario(String id) {
-        userRepository.deleteById(id);
-    }
 }

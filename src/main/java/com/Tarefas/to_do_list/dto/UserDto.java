@@ -22,22 +22,9 @@ public class UserDto {
     @NotBlank(message = "O email é obrigatório")
     private String email;
 
-    public String getCpf() {
-        return this.cpf;
-    }
-
-    public String getNome(){
-        return this.nome;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-    public String getPassword() {
-        return this.password;
-    }
-
-    public void setPassword(String pass) {
-         this.password = pass;
-    }
+    private String cep;
+    private String rua;
+    private String cidade;
+    private String estado;
+    private String sexo;
 }
