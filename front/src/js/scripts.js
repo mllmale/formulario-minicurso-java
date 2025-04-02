@@ -15,7 +15,7 @@ async function enviarDado() {
         return;
     }
 
-    const cpf = formatarCPF(cpfElement.value);
+    const cpf = cpfElement.value;
     const nome = nomeElement.value;
     const email = emailElement.value;
     const sexo = sexoElement.value;
@@ -215,5 +215,31 @@ document.addEventListener("DOMContentLoaded", function() {
 
     document.getElementById("cep").addEventListener("input", function(event) {
         formataInput(event, "cep");
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cepInput = document.getElementById("cep");
+    const estadoInput = document.getElementById("estado");
+    const cidadeInput = document.getElementById("cidade");
+    const ruaInput = document.getElementById("rua");
+
+    cepInput.addEventListener("input", async () => {
+        let cep = cepInput.value
+
+        if (cep.length === 8) {
+            try {
+                const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+                const data = await response.json();
+
+                if (!data.erro) {
+                    estadoInput.value = data.uf;
+                    cidadeInput.value = data.localidade;
+                    ruaInput.value = data.logradouro;
+                } 
+            } catch (error) {
+                console.error("Erro ao buscar o CEP:", error);
+            }
+        } 
     });
 });
