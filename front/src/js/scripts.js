@@ -28,6 +28,15 @@ async function enviarDado() {
     const dados = { cpf, nome, email, sexo, cep, rua, cidade, estado };
     console.log(dados);
 
+    document.getElementById('cpf').value = "";
+    document.getElementById('nome').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('sexo').value = "";
+    document.getElementById('cep').value = "";
+    document.getElementById('rua').value = "";
+    document.getElementById('estado').value = "";
+    document.getElementById('cidade').value = "";
+
     try {
         const { url, options } = sendData(dados);
         const response = await fetch(url, options);
